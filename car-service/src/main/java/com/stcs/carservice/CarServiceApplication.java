@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,4 +33,8 @@ class Car {
     private UUID id;
     private String name;
     private LocalDate releaseDate;
+}
+
+interface CarRepository extends ReactiveMongoRepository<Car, UUID> {
+	
 }
